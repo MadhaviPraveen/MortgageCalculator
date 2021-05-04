@@ -1,0 +1,22 @@
+<h2>Prepayment Plan</h2>
+<div>
+    <label id="pre-payment-amount" >
+        Prepayment Amount: <input type="number" [formControl]="prePaymentAmount">
+    </label>
+</div>
+<div>
+    <label id="pre-payment-frequency" >
+        Prepayment Frequency: <input type="string" [formControl]="prePaymentFrequency">
+    </label>
+</div>
+<div>
+    <label id="start-with-payment" >
+        Start With Payment: <input type="number" [formControl]="startWithPayment">
+    </label>
+</div>
+
+  <p>
+    Prepayment Amount: {{ prePaymentAmount.value }}
+    Prepayment Frequency: {{ prePaymentFrequency.value }}
+    Start With Payment: {{ startWithPayment.value }}
+  </p>

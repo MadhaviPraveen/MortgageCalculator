@@ -1,24 +1,29 @@
- 
-<label id="mortgage-amount-label" >
-    Mortgage Amount: <input type="text" [formControl]="mortgageAmount">
-</label>
-
-<label id="interest-rate-label" >
-    Interest Rate: <input type="text" [formControl]="interestRate">
-</label>
-
-<label id="mortgage-amount-label" >
-    Amortization Period: <input type="text" [formControl]="amortizationYears"> <input type="text" [formControl]="amortizationMonths">
-</label>
-
-<label id="mortgage-amount-label" >
-    paymentFrequencyt: <input type="text" [formControl]="paymentFrequency">
-</label>
-
-<label id="term-label" >
-    term: <input type="text" [formControl]="term">
-</label>
-
+<h2>Payment Plan</h2> 
+<div>
+    <label id="mortgage-amount-label" >
+        Mortgage Amount: <input type="text" [formControl]="mortgageAmount">
+    </label>
+</div>
+<div>
+    <label id="interest-rate-label" >
+        Interest Rate: <input type="text" [formControl]="interestRate">
+    </label>
+</div>
+<div>
+    <label id="mortgage-amount-label" >
+        Amortization Period: <input type="text" [formControl]="amortizationYears"> <input type="text" [formControl]="amortizationMonths">
+    </label>
+</div>
+<div>
+    <label id="mortgage-amount-label" >
+        Payment Frequency: <input type="text" [formControl]="paymentFrequency">
+    </label>
+</div>
+<div>
+    <label id="term-label" >
+        Term: <input type="text" [formControl]="term">
+    </label>
+</div>
 
 <p>
     Value: {{ mortgageAmount.value }}
