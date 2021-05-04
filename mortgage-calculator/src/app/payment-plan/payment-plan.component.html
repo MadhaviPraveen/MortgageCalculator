@@ -1,0 +1,30 @@
+ 
+<label id="mortgage-amount-label" >
+    Mortgage Amount: <input type="text" [formControl]="mortgageAmount">
+</label>
+
+<label id="interest-rate-label" >
+    Interest Rate: <input type="text" [formControl]="interestRate">
+</label>
+
+<label id="mortgage-amount-label" >
+    Amortization Period: <input type="text" [formControl]="amortizationYears"> <input type="text" [formControl]="amortizationMonths">
+</label>
+
+<label id="mortgage-amount-label" >
+    paymentFrequencyt: <input type="text" [formControl]="paymentFrequency">
+</label>
+
+<label id="term-label" >
+    term: <input type="text" [formControl]="term">
+</label>
+
+
+<p>
+    Value: {{ mortgageAmount.value }}
+    {{ interestRate.value }}
+    {{ amortizationYears.value }}
+    {{ amortizationMonths.value }}
+    {{ paymentFrequency.value }}
+    {{ term.value }}
+</p>
