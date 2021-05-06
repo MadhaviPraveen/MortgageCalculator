@@ -1,0 +1,41 @@
+<div class = "title"><h2>Calculation Summary</h2></div>
+<div  *ngIf = "mortgageService.getCalculationSummary()" class= "summaryTable">
+<table  mat-table class="mat-elevation-z8">
+  <tr>
+    <th>Category</th>
+    <th>Term</th>
+    <th>Amortization</th>
+  </tr>
+  <tr>
+    <td>Number of Payments</td>
+    <!--TODO: remove this line replace with {{mortgageService.getCalculationSummary().numberOfPayments}}-->
+    <td>{{mortgageService.getNumberOfPayments()}}</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Mortgage Payment</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Prepayment</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Principal Payments</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Interest Payments</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Total Cost</td>
+    <td></td>
+    <td></td>
+  </tr>
+</table>
+</div>

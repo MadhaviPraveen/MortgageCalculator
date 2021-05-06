@@ -1,7 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { PrePaymentPlans } from '../PrePaymentPlan';
-// import { PrePaymentPlan } from '../PrePaymentPlan';
+import { PrePaymentPlan } from '../PrePaymentPlan';
 
 @Component({
   selector: 'app-pre-payment-plan',
@@ -9,7 +8,7 @@ import { PrePaymentPlans } from '../PrePaymentPlan';
   styleUrls: ['./pre-payment-plan.component.css']
 })
 export class PrePaymentPlanComponent implements OnInit {
-  prePayment: PrePaymentPlans;
+  prePayment: PrePaymentPlan;
   @Input() prePaymentPlanForm: FormGroup;
 
   prePaymentAmount = new FormControl(0);
