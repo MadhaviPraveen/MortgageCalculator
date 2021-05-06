@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 import { CalculationSummary } from './CalculationSummary';
 import { PaymentPlan } from './PaymentPlan';
 import { PrePaymentPlan } from './PrePaymentPlan';
@@ -11,7 +12,15 @@ export class MortgageService {
   prePaymentPlan: PrePaymentPlan;
   calculationSummary: CalculationSummary;
 
+  private value$ = new BehaviorSubject(null);
 
+  get values() {
+    return this.value$.asObservable();
+  }
+
+  setValues(calculationSummary: CalculationSummary) {
+    this.value$.next(calculationSummary);
+  }
 
   getNumberOfPayments(): number{
     if (this.paymentPlan == null || this.paymentPlan === undefined) {
@@ -31,11 +40,20 @@ export class MortgageService {
     this.paymentPlan = paymentPlan;
   }
 
-  // todo: do your calculations here. This should link to the calculate button
-  public calculate(): void {
-
+  public putPrePaymentPlan(prePaymentPlan: PrePaymentPlan): void{
+    this.prePaymentPlan = prePaymentPlan;
   }
 
+
+  public calculateCalculationSummary(paymentPlan, prePaymentPlan){
+    const interest = paymentPlan.interestRate / 100;
+    const currPaymentFrequency = paymentPlan.paymentFrequency;
+    const time = paymentPlan.amortizationYears * currPaymentFrequency + paymentPlan.amortizationMonths;
+    const payment = (paymentPlan.mortgageAmount * interest) / (1 - Math.pow(1 + interest, -time));
+
+    this.calculationSummary = new CalculationSummary(time, payment, 0, paymentPlan.mortgageAmount, interest, 0);
+    this.setValues(this.calculationSummary);
+  }
 
   constructor() { }
 }

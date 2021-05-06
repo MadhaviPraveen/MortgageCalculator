@@ -1,4 +1,8 @@
 <h2>Mortgage Calculator</h2>
-<app-payment-plan></app-payment-plan>
-<app-pre-payment-plan></app-pre-payment-plan>
+<app-payment-plan #paymentPlanForm></app-payment-plan>
+<app-pre-payment-plan #prePaymentForm></app-pre-payment-plan>
 <app-calculation-summary></app-calculation-summary>
+
+<div>
+    <button  (click)="calculate()">Calculate...</button>
+</div>

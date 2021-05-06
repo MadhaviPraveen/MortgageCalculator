@@ -1,5 +1,6 @@
 <div class = "title"><h2>Calculation Summary</h2></div>
-<div  *ngIf = "mortgageService.getCalculationSummary()" class= "summaryTable">
+<!--<p>firstNumber: {{firstNumber | async}}</p>-->
+<div  *ngIf = "calculationSummary | async" class= "summaryTable">
 <table  mat-table class="mat-elevation-z8">
   <tr>
     <th>Category</th>
@@ -9,32 +10,32 @@
   <tr>
     <td>Number of Payments</td>
     <!--TODO: remove this line replace with {{mortgageService.getCalculationSummary().numberOfPayments}}-->
-    <td>{{mortgageService.getNumberOfPayments()}}</td>
+    <td>{{(calculationSummary | async) ?.numberOfPayments}}</td>
     <td></td>
   </tr>
   <tr>
     <td>Mortgage Payment</td>
-    <td></td>
+    <td>{{(calculationSummary | async) ?.mortgagePayment}}</td>
     <td></td>
   </tr>
   <tr>
     <td>Prepayment</td>
-    <td></td>
+    <td>{{(calculationSummary | async) ?.prePayment}}</td>
     <td></td>
   </tr>
   <tr>
     <td>Principal Payments</td>
-    <td></td>
+    <td>{{(calculationSummary | async) ?.principalAmount}}</td>
     <td></td>
   </tr>
   <tr>
     <td>Interest Payments</td>
-    <td></td>
+    <td>{{(calculationSummary | async) ?.interestPayment}}</td>
     <td></td>
   </tr>
   <tr>
     <td>Total Cost</td>
-    <td></td>
+    <td>{{(calculationSummary | async) ?.totalCost}}</td>
     <td></td>
   </tr>
 </table>

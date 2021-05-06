@@ -1,35 +1,40 @@
-<h2>Payment Plan</h2> 
+<h2>Payment Plan</h2>
+<form [formGroup]="paymentPlanForm">
 <div>
     <label id="mortgage-amount-label" >
-        Mortgage Amount: <input type="text" [formControl]="mortgageAmount">
+        Mortgage Amount: <input type="text" formControlName="mortgageAmount">
     </label>
 </div>
 <div>
     <label id="interest-rate-label" >
-        Interest Rate: <input type="text" [formControl]="interestRate">
+        Interest Rate: <input type="text" formControlName="interestRate">
     </label>
 </div>
 <div>
-    <label id="mortgage-amount-label" >
-        Amortization Period: <input type="text" [formControl]="amortizationYears"> <input type="text" [formControl]="amortizationMonths">
+    <label id="amortization-period-label" >
+        Amortization Period: <input type="text" formControlName="amortizationYears"> <input type="text" formControlName="amortizationMonths">
     </label>
 </div>
-<div>
-    <label id="mortgage-amount-label" >
-        Payment Frequency: <input type="text" [formControl]="paymentFrequency">
+
+<div class="form-control">
+    <label id="paymentFrequency">
+      <span>Payment Frequency: </span>
+      <select formControlName="paymentFrequency">
+        <option *ngFor="let frequency of getFrequency()" [value]="frequency.value">{{frequency.label}}</option>
+      </select>
     </label>
 </div>
 <div>
     <label id="term-label" >
-        Term: <input type="text" [formControl]="term">
+        Term: <input type="text" formControlName="term">
     </label>
 </div>
-
+</form>
 <p>
-    Value: {{ mortgageAmount.value }}
-    {{ interestRate.value }}
-    {{ amortizationYears.value }}
-    {{ amortizationMonths.value }}
-    {{ paymentFrequency.value }}
-    {{ term.value }}
+    Value: {{ paymentPlanForm.get('mortgageAmount').value }}
+    {{ paymentPlanForm.get('interestRate').value }}
+    {{ paymentPlanForm.get('amortizationYears').value }}
+    {{ paymentPlanForm.get('amortizationMonths').value }}
+    {{ paymentPlanForm.get('paymentFrequency').value }}
+    {{ paymentPlanForm.get('term').value }}
 </p>
