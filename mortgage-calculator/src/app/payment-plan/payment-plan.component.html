@@ -2,17 +2,17 @@
 <form [formGroup]="paymentPlanForm">
 <div>
     <label id="mortgage-amount-label" >
-        Mortgage Amount: <input type="text" formControlName="mortgageAmount">
+        Mortgage Amount: <input type= number formControlName="mortgageAmount">
     </label>
 </div>
 <div>
     <label id="interest-rate-label" >
-        Interest Rate: <input type="text" formControlName="interestRate">
+        Interest Rate: <input type= number formControlName="interestRate">
     </label>
 </div>
 <div>
     <label id="amortization-period-label" >
-        Amortization Period: <input type="text" formControlName="amortizationYears"> <input type="text" formControlName="amortizationMonths">
+        Amortization Period: <input type= number formControlName="amortizationYears"> <input type= number formControlName="amortizationMonths">
     </label>
 </div>
 
@@ -26,7 +26,7 @@
 </div>
 <div>
     <label id="term-label" >
-        Term: <input type="text" formControlName="term">
+        Term: <input type= number formControlName="term">
     </label>
 </div>
 </form>

@@ -10,7 +10,7 @@ import { PrePaymentPlan } from './PrePaymentPlan';
 export class MortgageService {
   paymentPlan: PaymentPlan;
   prePaymentPlan: PrePaymentPlan;
-  calculationSummary: CalculationSummary;
+  calculationSummary: CalculationSummary = new CalculationSummary();
 
   private value$ = new BehaviorSubject(null);
 
@@ -45,13 +45,18 @@ export class MortgageService {
   }
 
 
-  public calculateCalculationSummary(paymentPlan, prePaymentPlan){
-    const interest = paymentPlan.interestRate / 100;
-    const currPaymentFrequency = paymentPlan.paymentFrequency;
-    const time = paymentPlan.amortizationYears * currPaymentFrequency + paymentPlan.amortizationMonths;
-    const payment = (paymentPlan.mortgageAmount * interest) / (1 - Math.pow(1 + interest, -time));
-
-    this.calculationSummary = new CalculationSummary(time, payment, 0, paymentPlan.mortgageAmount, interest, 0);
+  public calculateCalculationSummary(paymentPlan: PaymentPlan, prePaymentPlan: PrePaymentPlan){
+    console.log('prePaymentPlan inside service:', prePaymentPlan);
+    console.log('paymentPlan inside service:', paymentPlan);
+    console.log(paymentPlan.interestRate);
+    const interest = Number(paymentPlan.interestRate) / 100;
+    console.log('------------------->', interest);
+    const currPaymentFrequency = Number(paymentPlan.paymentFrequency);
+    const time = Number(paymentPlan.amortizationYears * currPaymentFrequency + paymentPlan.amortizationMonths);
+    const payment = Number((paymentPlan.mortgageAmount * interest) / (1 - Math.pow(1 + interest, -time)));
+    console.log(interest, currPaymentFrequency, time, payment);
+    // this.calculationSummary.interestPayment = 5;
+    // this.calculationSummary.mortgagePayment = 5;
     this.setValues(this.calculationSummary);
   }
 

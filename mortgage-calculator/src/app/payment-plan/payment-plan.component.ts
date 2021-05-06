@@ -1,4 +1,3 @@
-import { temporaryAllocator } from '@angular/compiler/src/render3/view/util';
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
 import { MortgageService } from '../mortgage.service';
@@ -11,9 +10,7 @@ import {PaymentPlan} from '../PaymentPlan';
 })
 export class PaymentPlanComponent implements OnInit {
 
-  constructor(public service: MortgageService) {
-    this.mortgageService = service;
-
+  constructor(private mortgageService: MortgageService) {
     this.paymentPlanForm = new FormGroup({
       mortgageAmount: new FormControl(0.0),
       interestRate: new FormControl(5.00),
@@ -25,11 +22,9 @@ export class PaymentPlanComponent implements OnInit {
   }
 
   paymentPlanForm: FormGroup;
-  mortgageService: MortgageService;
   paymentPlan: PaymentPlan;
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   getFrequency(): {label: string, value: number}[] {
     return [
@@ -39,4 +34,5 @@ export class PaymentPlanComponent implements OnInit {
       {label: 'Monthly (12x per year)', value: 12 }
     ];
   }
+
 }

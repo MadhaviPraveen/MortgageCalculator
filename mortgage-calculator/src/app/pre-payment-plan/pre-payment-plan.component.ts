@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { MortgageService } from '../mortgage.service';
 import { PrePaymentPlan } from '../PrePaymentPlan';
@@ -10,12 +10,6 @@ import { PrePaymentPlan } from '../PrePaymentPlan';
 })
 export class PrePaymentPlanComponent implements OnInit {
   prePayment: PrePaymentPlan;
-  @Input() prePaymentPlanForm: FormGroup;
-
-  prePaymentAmount = new FormControl(0);
-  prePaymentFrequency = new FormControl('One time');
-  startWithPayment = new FormControl(1);
-  // mortgageService: MortgageService;
   prePaymentForm: FormGroup;
 
   constructor(private mortgageService: MortgageService) {
@@ -24,9 +18,8 @@ export class PrePaymentPlanComponent implements OnInit {
       prePaymentFrequency: new FormControl('One time'),
       startWithPayment: new FormControl(1)
     });
-   }
-
-  ngOnInit(): void {
-    // this.prePaymentPlanForm.addControl('prePaymentAmount', this.prePaymentAmount);
   }
+
+  ngOnInit(): void {}
+
 }

@@ -1,18 +1,8 @@
 export class CalculationSummary{
-    numberOfPayments: number;
-    mortgagePayment: number;
-    prePayment: number;
-    principalAmount: number;
-    interestPayment: number;
-    totalCost: number;
-
-    constructor(numberOfPayments: number, mortgagePayment: number, prePayment: number,
-                principalAmount: number, interestPayment: number, totalCost: number) {
-            this.numberOfPayments = numberOfPayments;
-            this.prePayment = prePayment;
-            this.mortgagePayment = mortgagePayment;
-            this.principalAmount = principalAmount;
-            this.interestPayment = interestPayment;
-            this.totalCost = totalCost;
-        }
+    numberOfPayments: number|0;
+    mortgagePayment: number|0;
+    prePayment: number|0;
+    principalAmount: number|0;
+    interestPayment: number|0;
+    totalCost: number|0;
 }
