@@ -2,12 +2,11 @@
   font-size: 20px;
   font-weight: bold;
 }
-
 .p-fluid {
-}
-
-.right-container {
   border: 1px solid blue;
+  height: 170px;
+}
+.right-container {
   margin: 0;
   border-radius: 3px;
   width: 45%;
@@ -21,6 +20,7 @@
 
 .pInputText {
   padding-right: 1vw;
+  width: 750px;
 }
 
 .p-ml-2 {

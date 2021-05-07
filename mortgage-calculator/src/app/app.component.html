@@ -1,11 +1,15 @@
-<div class= "container">
+<div class= "row">
     <div class= "title">Mortgage Calculator</div>
-    <div class= "top-row block padded-div">
+    <div class= "block">
         <app-payment-plan #paymentPlanForm></app-payment-plan>
+    </div>
+    <div class ="block">
         <app-pre-payment-plan #prePaymentForm></app-pre-payment-plan>
     </div>
-    <div class= "submit block padded-div">
-        <button  (click)="calculate()">Calculate...</button>
-    </div>
-    <app-calculation-summary class="block"></app-calculation-summary>
+</div>
+<div class="row block">
+    <button (click)="calculate()">Calculate...</button>
+</div>
+<div class="block">
+    <app-calculation-summary></app-calculation-summary>
 </div>
