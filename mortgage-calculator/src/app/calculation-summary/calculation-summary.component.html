@@ -9,18 +9,17 @@
   </tr>
   <tr>
     <td>Number of Payments</td>
-    <!--TODO: remove this line replace with {{mortgageService.getCalculationSummary().numberOfPayments}}-->
     <td>{{(calculationSummary | async) ?.numberOfPayments}}</td>
     <td></td>
   </tr>
   <tr>
     <td>Mortgage Payment</td>
-    <td>{{(calculationSummary | async) ?.mortgagePayment}}</td>
+    <td>{{(calculationSummary | async) ?.mortgagePayment | currency: '$'}}</td>
     <td></td>
   </tr>
   <tr>
     <td>Interest Payments</td>
-    <td>{{(calculationSummary | async) ?.interestPayment}}</td>
+    <td>{{(calculationSummary | async) ?.interestPayment | currency: '$'}}</td>
     <td></td>
   </tr>
   

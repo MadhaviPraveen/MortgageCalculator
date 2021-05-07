@@ -2,7 +2,7 @@
   justify-content: center;
 }
 table {
-  width: 80%;
+  width: 100%;
 }
 
 tr:nth-child(even) {
