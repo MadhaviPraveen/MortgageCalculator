@@ -1,0 +1,29 @@
+.plan-title {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.p-fluid {
+}
+
+.right-container {
+  border: 1px solid blue;
+  margin: 0;
+  border-radius: 3px;
+  width: 45%;
+  height: 100%;
+  float: left;
+  display: inline;
+}
+.p-field {
+  padding: 0.5vw 0 0.5vw 0;
+}
+
+.pInputText {
+  padding-right: 1vw;
+}
+
+.p-ml-2 {
+  font-weight: bold;
+  padding-left: 1vw;
+}

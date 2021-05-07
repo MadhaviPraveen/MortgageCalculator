@@ -1,0 +1,23 @@
+.submit {
+  float: left;
+  height: calc(100%-1000px);
+}
+
+.container {
+  /* background-color: whitesmoke; */
+  height: 100%;
+}
+
+.title {
+  font-size: 40px;
+  font-weight: bold;
+  padding-left: 20px;
+}
+
+/* .block {
+  display: block;
+} */
+
+.padded-div {
+  padding-bottom: 50px;
+}

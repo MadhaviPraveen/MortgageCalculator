@@ -1,23 +1,29 @@
-<h2>Prepayment Plan</h2>
+<div class="right-container">
+<div class="plan-title">Prepayment Plan</div>
 <form [formGroup]="prePaymentForm">
-<div>
-    <label id="pre-payment-amount" >
-        Prepayment Amount: <input type="number" formControlName="prePaymentAmount">
-    </label>
-</div>
-<div>
-    <label id="pre-payment-frequency" >
-        Prepayment Frequency: <input type="string" formControlName="prePaymentFrequency">
-    </label>
-</div>
-<div>
-    <label id="start-with-payment" >
-        Start With Payment: <input type="number" formControlName="startWithPayment">
-    </label>
+<div class="p-fluid">    
+    <div class="p-field">
+        <span class="p-ml-2">
+            <label id="pre-payment-amount" >
+                Prepayment Amount: <input type="number" formControlName="prePaymentAmount" pInputText>
+            </label>
+        </span>
+    </div>
+    <div class="p-field">
+        <span class="p-ml-2">
+            <label id="pre-payment-frequency" >
+                Prepayment Frequency: <input type="string" formControlName="prePaymentFrequency" disabled="disabled" pInputText>
+            </label>
+        </span>
+    </div>
+    <div class="p-field">
+        <span class="p-ml-2">
+            <label id="start-with-payment" >
+                Start With Payment: <input type="number" formControlName="startWithPayment" pInputText>
+            </label>
+        </span>
+    </div>
 </div>
 </form>
-  <p>
-    Prepayment Amount: {{ prePaymentForm.get('prePaymentAmount').value }}
-    Prepayment Frequency: {{ prePaymentForm.get('prePaymentFrequency').value }}
-    Start With Payment: {{ prePaymentForm.get('startWithPayment').value }}
-  </p>
+</div>
+ 

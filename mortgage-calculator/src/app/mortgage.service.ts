@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { CalculationSummary } from './CalculationSummary';
 import { PaymentPlan } from './PaymentPlan';
+import { PaymentSchedule } from './PaymentSchedule';
 import { PrePaymentPlan } from './PrePaymentPlan';
 
 @Injectable({
@@ -13,6 +14,8 @@ export class MortgageService {
   calculationSummary: CalculationSummary = new CalculationSummary();
 
   private value$ = new BehaviorSubject(null);
+  paymentTotals: any;
+  paymentSchedule: PaymentSchedule[];
 
   get values() {
     return this.value$.asObservable();
@@ -36,15 +39,6 @@ export class MortgageService {
     return this.calculationSummary;
   }
 
-  public putPaymentPlan(paymentPlan: PaymentPlan): void {
-    this.paymentPlan = paymentPlan;
-  }
-
-  public putPrePaymentPlan(prePaymentPlan: PrePaymentPlan): void{
-    this.prePaymentPlan = prePaymentPlan;
-  }
-
-
   public calculateCalculationSummary(paymentPlan: PaymentPlan, prePaymentPlan: PrePaymentPlan){
     console.log('prePaymentPlan inside service:', prePaymentPlan);
     console.log('paymentPlan inside service:', paymentPlan);
@@ -55,9 +49,34 @@ export class MortgageService {
     const time = Number(paymentPlan.amortizationYears * currPaymentFrequency + paymentPlan.amortizationMonths);
     const payment = Number((paymentPlan.mortgageAmount * interest) / (1 - Math.pow(1 + interest, -time)));
     console.log(interest, currPaymentFrequency, time, payment);
-    // this.calculationSummary.interestPayment = 5;
-    // this.calculationSummary.mortgagePayment = 5;
+    this.calculationSummary.numberOfPayments = time;
+    this.calculationSummary.interestPayment = this.getInterestPayment(paymentPlan, prePaymentPlan);
+    this.calculationSummary.mortgagePayment = this.getPaymentAmount(paymentPlan, prePaymentPlan);
+    console.log(this.calculationSummary);
     this.setValues(this.calculationSummary);
+
+  }
+
+  public getPaymentAmount(paymentPlan: PaymentPlan, prePaymentPlan: PrePaymentPlan): number {
+
+    /*Defaulted to one time prepayment only */
+    const P = Number(paymentPlan.mortgageAmount) - Number(prePaymentPlan.prePaymentAmount);
+    const r = Number(paymentPlan.interestRate);
+    const n = Number(paymentPlan.paymentFrequency);
+    const time = Number(paymentPlan.amortizationYears * Number(paymentPlan.paymentFrequency) +  Number(paymentPlan.amortizationMonths));
+    console.log(P + '--- ' + r + ' --- ' + n + ' -- ' + time);
+    const val = (1 + r / n);
+    const payment = P * (r / n) * Math.pow(val, time) / Math.pow(val, time) - 1;
+    console.log(val + ' -- ' + payment);
+    return payment;
+  }
+
+  public getInterestPayment(paymentPlan: PaymentPlan, prePaymentPlan: PrePaymentPlan): number {
+    /*Defaulted to one time prepayment only */
+    const P = Number(paymentPlan.mortgageAmount) - Number(prePaymentPlan.prePaymentAmount);
+    const r = Number(paymentPlan.interestRate);
+    const frequency = Number(paymentPlan.paymentFrequency);
+    return P * (r / frequency);
   }
 
   constructor() { }

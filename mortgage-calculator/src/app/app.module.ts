@@ -7,6 +7,7 @@ import { PaymentPlanComponent } from './payment-plan/payment-plan.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { PrePaymentPlanComponent } from './pre-payment-plan/pre-payment-plan.component';
 import { CalculationSummaryComponent } from './calculation-summary/calculation-summary.component';
+import {InputTextModule} from 'primeng/inputtext';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { CalculationSummaryComponent } from './calculation-summary/calculation-s
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    InputTextModule
   ],
   providers: [],
   bootstrap: [AppComponent]

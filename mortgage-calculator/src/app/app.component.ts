@@ -24,7 +24,7 @@ export class AppComponent implements OnInit{
     this.paymentPlan.amortizationYears = this.paymentPlanForm.paymentPlanForm.value.amortizationYears;
     this.paymentPlan.paymentFrequency = this.paymentPlanForm.paymentPlanForm.value.paymentFrequency;
     this.paymentPlan.term = this.paymentPlanForm.paymentPlanForm.value.term;
-    this.mortgageService.calculateCalculationSummary(this.paymentPlan, this.paymentPlanForm.paymentPlanForm.value);
+    this.mortgageService.calculateCalculationSummary(this.paymentPlan, this.prePaymentForm.prePaymentForm.value);
   }
 
   ngOnInit(): void {}

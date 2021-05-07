@@ -1,40 +1,51 @@
-<h2>Payment Plan</h2>
+<div class="left-container">
+<div class="plan-title">Payment Plan</div>
 <form [formGroup]="paymentPlanForm">
-<div>
-    <label id="mortgage-amount-label" >
-        Mortgage Amount: <input type= number formControlName="mortgageAmount">
-    </label>
-</div>
-<div>
-    <label id="interest-rate-label" >
-        Interest Rate: <input type= number formControlName="interestRate">
-    </label>
-</div>
-<div>
-    <label id="amortization-period-label" >
-        Amortization Period: <input type= number formControlName="amortizationYears"> <input type= number formControlName="amortizationMonths">
-    </label>
-</div>
-
-<div class="form-control">
-    <label id="paymentFrequency">
-      <span>Payment Frequency: </span>
-      <select formControlName="paymentFrequency">
-        <option *ngFor="let frequency of getFrequency()" [value]="frequency.value">{{frequency.label}}</option>
-      </select>
-    </label>
-</div>
-<div>
-    <label id="term-label" >
-        Term: <input type= number formControlName="term">
-    </label>
+<div class="p-fluid">    
+    <div class="p-field">
+        <span class="p-ml-2">
+            <label for="mortgage-amount-label" >
+                Mortgage Amount: <input id="mortgage-amount" type= number formControlName="mortgageAmount" pInputText>
+            </label>
+        </span>    
+    </div>
+    <div class="p-field">
+        <span class="p-ml-2">
+            <label id="interest-rate-label" >
+                Interest Rate: <input type= number formControlName="interestRate" pInputText>
+            </label>
+        </span>
+    </div>
+    <div class="p-field">
+        <span class="p-ml-2">
+            <label id="amortization-period-label"> Amortization Period: 
+                <select formControlName="amortizationYears">
+                    <option *ngFor="let period of getAmortizationYears()" [value]="period.value">{{period.label}}</option>
+                </select>
+                <select formControlName="amortizationMonths">
+                    <option *ngFor="let period of getAmortizationMonths()" [value]="period.value">{{period.label}}</option>
+                </select>
+            </label>
+        </span>
+    </div>
+    <div class="p-field">
+        <span class="p-ml-2">
+            <label id="payment-frequency-label"> Payment Frequency: 
+                <select formControlName="paymentFrequency">
+                <option *ngFor="let frequency of getFrequency()" [value]="frequency.value">{{frequency.label}}</option>
+            </select>
+            </label>
+        </span>
+    </div>
+    <div class="p-field">
+        <span class="p-ml-2">
+            <label id="term-label"> Term: 
+                <select formControlName="term">
+                <option *ngFor="let term of getTerms()" [value]="term.value">{{term.label}}</option>
+            </select>
+            </label>
+        </span>
+    </div>
 </div>
 </form>
-<p>
-    Value: {{ paymentPlanForm.get('mortgageAmount').value }}
-    {{ paymentPlanForm.get('interestRate').value }}
-    {{ paymentPlanForm.get('amortizationYears').value }}
-    {{ paymentPlanForm.get('amortizationMonths').value }}
-    {{ paymentPlanForm.get('paymentFrequency').value }}
-    {{ paymentPlanForm.get('term').value }}
-</p>
+</div>

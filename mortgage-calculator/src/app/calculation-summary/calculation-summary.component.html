@@ -1,6 +1,7 @@
+<div  *ngIf = "calculationSummary | async" >
 <div class = "title"><h2>Calculation Summary</h2></div>
-<div  *ngIf = "calculationSummary | async" class= "summaryTable">
-<table  mat-table class="mat-elevation-z8">
+<div class= "summaryTable">
+<table mat-table class="mat-elevation-z8">
   <tr>
     <th>Category</th>
     <th>Term</th>
@@ -18,24 +19,11 @@
     <td></td>
   </tr>
   <tr>
-    <td>Prepayment</td>
-    <td>{{(calculationSummary | async) ?.prePayment}}</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>Principal Payments</td>
-    <td>{{(calculationSummary | async) ?.principalAmount}}</td>
-    <td></td>
-  </tr>
-  <tr>
     <td>Interest Payments</td>
     <td>{{(calculationSummary | async) ?.interestPayment}}</td>
     <td></td>
   </tr>
-  <tr>
-    <td>Total Cost</td>
-    <td>{{(calculationSummary | async) ?.totalCost}}</td>
-    <td></td>
-  </tr>
+  
 </table>
+</div>
 </div>
