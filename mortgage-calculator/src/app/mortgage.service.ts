@@ -35,6 +35,8 @@ export class MortgageService {
     this.calculationSummary.numberOfPayments = time;
     this.calculationSummary.interestPayment = this.getInterestPayment(paymentPlan, prePaymentPlan);
     this.calculationSummary.mortgagePayment = this.getPaymentAmount(paymentPlan, prePaymentPlan);
+
+    /*Updating the behavior subjects next value so that it shows up in calculation summary */
     this.setValues(this.calculationSummary);
   }
 
